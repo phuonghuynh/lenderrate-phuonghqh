@@ -29,16 +29,7 @@ public class Main {
     return selectedList.stream().map(v -> v.toString()).collect(Collectors.joining(" "));
   }
 
-  public static void main(String[] args) {
-    int[][] arrays = new int[][]{
-      {5, 4, 3, 2, 1},
-      {4, 1},
-      {5, 0, 0},
-      {6, 4, 2},
-      {1},
-    };
-    int N = 5;
-
+  public static List<String> findHighestSums(int[][] arrays, int N) {
     Arrays.sort(arrays, (a1, a2) -> {
       int rs = a2[0] - a1[0];
       if (rs == 0) {
@@ -92,6 +83,20 @@ public class Main {
       Ni++;
     }
 
+    return result;
+  }
+
+  public static void main(String[] args) {
+    int[][] arrays = new int[][]{
+      {5, 4, 3, 2, 1},
+      {4, 1},
+      {5, 0, 0},
+      {6, 4, 2},
+      {1},
+    };
+    int N = 5;
+
+    List<String> result = findHighestSums(arrays, N);
     System.out.println("Combinations:");
     System.out.println(result);
     System.out.println("Sums:");
